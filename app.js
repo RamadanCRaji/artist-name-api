@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const PORT = 8000;
-
+const cors = require("cors");
+app.use(cors());
 let rappers = {
   "21 savage": {
     age: 28,
@@ -157,6 +158,6 @@ app.get("/api/:rapperName", (req, res) => {
   }
 });
 
-app.listen(PORT, (_) => {
+app.listen(process.env.PORT || PORT, (_) => {
   console.log(`the server is running on port ${PORT}`);
 });
